@@ -96,8 +96,8 @@ if (!open_id) {
 //结束-判断
 
 const pay_url = 'https://www.djfans.net';
-const appid = 'wx3472f272ef0129dc';
-const key = 'wxzhufunia2018031911hongbaopayer';
+const appid = '';
+const key = '';
 
 var fee = 0
 var body =''
