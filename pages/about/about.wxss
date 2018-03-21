@@ -1,0 +1,14 @@
+/* pages/about/about.wxss */
+
+.clear{
+  clear: both;
+}
+.hide{
+  display: none;
+}
+.l{
+  text-align: center;
+  padding: 100rpx 0;
+  color: gray;
+  width: 100%;
+}

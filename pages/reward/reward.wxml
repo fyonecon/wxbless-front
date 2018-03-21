@@ -1,0 +1,43 @@
+<!--pages/reward/reward.wxml-->
+
+<view>
+  
+  <view class='re-bg-v'>
+    <image class='re-bg-img po-height' src='../../images/re-bg.jpg'></image>
+    <text class='re-bg-txt'>高抬贵手，打赏小编</text>
+  </view>
+
+  <view class='clear'></view>
+</view>
+<view class='po-height'></view>
+<view>
+
+    <!--支付单位：分  -->
+    <view class='reward-btn' bindtap='will_pay' data-fee='288' data-body='打赏小编2.88'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt'>2.88</text>
+    </view>
+    <view class='reward-btn' bindtap='will_pay' data-fee='366' data-body='打赏小编3.66'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt'>3.66</text>
+    </view>
+    <view class='reward-btn' bindtap='will_pay' data-fee='520' data-body='打赏小编5.20'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt'>5.20</text>
+    </view>
+
+    <view class='reward-btn' bindtap='will_pay' data-fee='888' data-body='打赏小编8.88'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt'>8.88</text>
+    </view>
+    <view class='reward-btn' bindtap='will_pay' data-fee='999' data-body='打赏小编9.99'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt'>9.99</text>
+    </view>
+    <view class='reward-btn' bindtap='will_pay' data-fee='10000' data-body='打赏小编100.00'>
+      <image src='../../images/reward2.png' class='re-img'></image>
+      <text class='re-txt-alert'>100.00</text>
+    </view>
+
+</view>
+

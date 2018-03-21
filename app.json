@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/details/details",
+    "pages/show/show",
+    "pages/reward/reward",
+    "pages/mine/mine",
+    "pages/about/about",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "祝福你",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首 页",
+        "color": "#68838B",
+        "selectedColor": "#CD9B1D",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我 的",
+        "color": "#68838B",
+        "selectedColor": "#CD9B1D",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-selected.png"
+      }
+    ],
+    "borderStyle": "#eee"
+  }
+}

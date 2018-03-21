@@ -1,0 +1,5 @@
+<!--pages/about/about.wxml-->
+<text class='hide'>pages/about/about.wxml</text>
+<view class='l'>
+  <text >2018，感谢有你！</text>
+</view>

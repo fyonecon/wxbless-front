@@ -1,0 +1,29 @@
+/* pages/history/history.wxss */
+
+.his-cell{
+  border: 2rpx solid #eee;
+  margin-top: 20rpx;
+  padding: 10rpx 20rpx;
+  
+}
+
+.det{
+  color: darkgray;
+  font-size: 36rpx;
+  height: 60rpx;
+  line-height: 55rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cont{
+  color: gray;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  width: 100%;
+}
+
+
+.his-cell:active{
+  background: #eee;
+}

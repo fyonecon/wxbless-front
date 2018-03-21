@@ -1,0 +1,15 @@
+<!--pages/history/history.wxml-->
+<text class='hide'>pages/history/history.wxml</text>
+<view wx:for='{{history}}'>
+   <view class="his-cell " data-id='{{item.id}}' bindtap='del_history'>
+     <!--模板名称  -->
+     <view class='det'>
+       模板：{{item.detail_title}}
+     </view>
+     <!--填入的内容  -->
+     <view class='cont'>
+       {{item.content}}
+     </view>
+   </view>
+</view>
+<view class='foot-v'>-- 到底了 --</view>

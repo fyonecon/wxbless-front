@@ -1,0 +1,56 @@
+<!--pages/details/details.wxml-->
+<view>
+  <block wx:for="{{detail}}">
+    <!--背景图片容器  -->
+    <view class="detail-bg-img-box">
+      <image src="{{item.img_url}}" class="detail-bg-img"></image>
+    </view>
+    <!--文字容器  -->
+    <view class="txt-box">
+      <!--音乐  -->
+      <view class='music-v'>
+        <image src="../../images/btn_music_play.png" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
+        <image src="../../images/btn_music_close.png" class='music-img' bindtap="audioPlay"style='height:{{stylePause}}rpx;'></image> 
+        <audio name="{{item.music_name}}" src="{{item.music_src}}" class='myAudio hide' id="myAudio" controls loop bindplay="funplay" bindpause="funpause"  binderror="funerror"></audio>
+      </view>
+      
+      <view class='clear'></view>
+
+      <view class='form-v'>
+
+        <form bindsubmit="formSubmit" >
+
+          <!-- <text class='bless-title qinai'>亲爱的</text> -->
+          <!-- <view class='height'></view> -->
+          <!--同步内容  -->
+          <input placeholder='输入对方称呼'  name='content' class='input-name' value='' autofocus/>
+           <view class='height'></view>
+          <text class='bless-title'>这是送给你的祝福</text> 
+
+          <view class='input-box'>
+            <!--唯一随机数  -->
+            <input class='hide' name='only_num' value='{{only_num}}' />
+            <!--背景图  -->
+            <input name='img_url' class='hide' value='{{item.img_url}}'/>
+            <!--音乐地址  -->
+            <input name='music_src' class='hide' value='{{item.music_src}}' />
+            <!--音乐名  -->
+            <input name='music_name' class='hide' value='{{item.music_name}}' />
+            <!--同步user_id  -->
+            <input name='user_id' class='hide' value='{{user_id}}'/>
+            <!--模板名  -->
+            <input name='detail_title' class='hide' value='{{item.bless_title}}' />
+            
+
+            <button class='btn-post'  formType="submit">立即生成祝福贺卡</button>
+          </view>
+        </form>
+
+      </view>
+    </view>
+    <!--分享  -->
+   <!-- <view class='share'> 
+       <button class='btn-share' open-type='share'>分享给好友</button> 
+    </view> -->
+  </block>
+</view>

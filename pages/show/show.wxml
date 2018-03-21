@@ -1,0 +1,74 @@
+<!--pages/show/show.wxml-->
+<view>
+  <!-- <view>show you</view> -->
+  <block wx:for="{{had_detail}}"> 
+    <!--背景图片容器  -->
+    <view class="detail-bg-img-box">
+      <image src="{{item.img_url}}" class="detail-bg-img"></image>
+    </view>
+    <!--文字容器  -->
+    <view class="txt-box">
+      <!--音乐  -->
+      <view class='music-v'>
+        <image src="../../images/btn_music_play.png" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
+        <image src="../../images/btn_music_close.png" class='music-img' bindtap="audioPlay"style='height:{{stylePause}}rpx;'></image> 
+        <audio name="{{item.music_name}}" src="{{item.music_src}}" class='myAudio hide' id="myAudio" controls loop bindplay="funplay" bindpause="funpause"  binderror="funerror"></audio>
+      </view>
+      
+      <view class='clear'></view>
+
+      <view class='make-pe'>
+        <!-- <text class='bless-title'>亲爱的</text> -->
+        <view class='height'></view>
+        <text class='bless-title bl-name'>{{item.content}}</text>
+        <view class='height'></view>
+        <text class='bless-title'>这是送给你的祝福</text> 
+      </view>
+
+    </view>
+    <!--分享  -->
+    <!-- <view class='share'>
+      <button class='btn-share btn-active' open-type="share">分享给好友</button>
+    </view> -->
+    <!--分享  -->
+    <view class='more'>
+      <!-- <button class='btn-more btn-active' bindtap='back_home'>我也想做</button> -->
+      <!--  -->
+     
+        <view class='self-tab-item self-tab-active'>
+          <button class='tab-btn' bindtap='reward'>
+              <image class='item-icon' src='../../images/reward-icon.png'></image> 
+              <text class='item-txt'>打赏小编</text>
+          </button>
+        </view>
+      
+      <!--  -->
+      <view class='self-tab-item self-tab-active' bindtap='back_home'>
+        <button class='tab-btn'>
+         <image class='item-icon' src='../../images/new-icon.png'></image> 
+          <text class='item-txt'>更多模板</text>
+        </button>
+      </view>
+      <!--  -->
+      
+        <view class='self-tab-item self-tab-active'>
+          <button class='tab-btn' open-type="share">
+            <image class='item-icon' src='../../images/share-icon.png'></image> 
+            <text class='item-txt'>分享好友</text>
+          </button>
+        </view>
+      
+
+      <view class='clear'></view>
+    </view> 
+    <!--打赏  -->
+    <!-- <navigator url='../reward/reward'>
+      <image src='../../images/btn_right_give.gif' class='reward-img'></image>
+    </navigator> -->
+    <!--分享  -->
+    <!-- <button class='btn-active' open-type="share">
+      <image src='../../images/btn-share.gif' class='share-img'></image>
+    </button> -->
+
+  </block>
+</view>

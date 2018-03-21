@@ -1,0 +1,139 @@
+<!--index.wxml-->
+<view>
+
+  <!--轮播图  -->
+  <view>
+    <!--轮播 -->
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">  
+        <swiper-item class="banner" wx:for="{{slider}}">
+            <image src="{{item.cover_url}}" bindtap='swiper_nav' data-blessdetail_id='{{item.blessdetail_id}}' data-bless_title='{{item.bless_title}}' class="slide-image" mode="aspectFill"/>
+        </swiper-item>
+    </swiper>
+  </view>
+  
+  <!-- <view>
+    {{nickName}}-{{avatarUrl}}
+  </view> -->
+      
+      <!--祝福分类展示  -->
+      <view class="blesslist">
+        <view class="margin-grey"></view>
+        <!--标题  -->
+        <text class="bless-name">——· 节日祝福 ·——</text>
+        <view class="bless-img-content">
+          <block wx:for="{{jrzf}}">
+            <!--  -->
+            <view class="bless-img-box">
+              <!--跳转到详情页  -->
+               <form report-submit="true"  bindsubmit="formHotTap"  data-blessdetail_id="{{item.blessdetail_id}}" data-bless_title="{{item.bless_title}}">
+               <button class="form-button" form-type="submit">
+                <view class="index-nav" >
+                <!-- <view  class="index-nav" url="../details/details?detail_id={{item.blessdetail_id}}&user_id=1&detail_title={{item.bless_title}}"> -->
+                  <image class="bless-img" src="{{item.cover_url}}"></image>
+                  <text class="bless-title">{{item.bless_title}}</text>
+                </view>
+                </button>
+              </form>
+            </view>
+          </block>
+        </view>
+        
+      </view>
+
+      <!--祝福分类展示  -->
+      <view class="blesslist">
+        <view class="margin-grey"></view>
+        <!--标题  -->
+        <text class="bless-name">——· 廿四节气 ·——</text>
+        <view class="bless-img-content">
+          <block wx:for="{{essjq}}">
+            <!--  -->
+            <view class="bless-img-box">
+              <!--跳转到详情页  -->
+               <form report-submit="true"  bindsubmit="formHotTap"  data-blessdetail_id="{{item.blessdetail_id}}" data-bless_title="{{item.bless_title}}">
+               <button class="form-button" form-type="submit">
+                <view class="index-nav" >
+                <!-- <view  class="index-nav" url="../details/details?detail_id={{item.blessdetail_id}}&user_id=1&detail_title={{item.bless_title}}"> -->
+                  <image class="bless-img" src="{{item.cover_url}}"></image>
+                  <text class="bless-title">{{item.bless_title}}</text>
+                </view>
+                </button>
+              </form>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <!--祝福分类展示  -->
+      <view class="blesslist">
+        <view class="margin-grey"></view>
+        <!--标题  -->
+        <text class="bless-name">——· 阿弥陀福 ·——</text>
+        <view class="bless-img-content">
+          <block wx:for="{{emtf}}">
+            <!--  -->
+            <view class="bless-img-box">
+            <form report-submit="true"  bindsubmit="formHotTap"  data-blessdetail_id="{{item.blessdetail_id}}" data-bless_title="{{item.bless_title}}" >
+              <button class="form-button" form-type="submit">
+                <view class="index-nav" >
+                <image class="bless-img" src="{{item.cover_url}}"></image>
+                <text class="bless-title">{{item.bless_title}}</text>
+              </view>
+              </button>
+            </form>
+            </view>
+          </block>
+          
+        </view>
+      </view>
+
+      <!--祝福分类展示  -->
+      <view class="blesslist">
+        <view class="margin-grey"></view>
+        <!--标题  -->
+        <text class="bless-name">——· 福气延绵 ·——</text>
+        <view class="bless-img-content">
+          <block wx:for="{{fqym}}">
+            <!--  -->
+            <view class="bless-img-box">
+             <form report-submit="true"  bindsubmit="formHotTap"  data-blessdetail_id="{{item.blessdetail_id}}" data-bless_title="{{item.bless_title}}" >
+              <button class="form-button" form-type="submit">
+                <view class="index-nav" >
+                <image class="bless-img" src="{{item.cover_url}}"></image>
+                <text class="bless-title">{{item.bless_title}}</text>
+              </view>
+              </button>
+            </form>
+            </view>
+          </block>
+          
+        </view>
+      </view>
+
+      <!--祝福分类展示  -->
+      <view class="blesslist">
+        <view class="margin-grey"></view>
+        <!--标题  -->
+        <text class="bless-name">——· 问候朋友 ·——</text>
+        <view class="bless-img-content">
+          <block wx:for="{{whpy}}">
+            <!--  -->
+            <view class="bless-img-box">
+             <form report-submit="true"  bindsubmit="formHotTap"  data-blessdetail_id="{{item.blessdetail_id}}" data-bless_title="{{item.bless_title}}" >
+              <button class="form-button" form-type="submit">
+                <view class="index-nav" >
+                <image class="bless-img" src="{{item.cover_url}}"></image>
+                <text class="bless-title">{{item.bless_title}}</text>
+              </view>
+              </button>
+            </form>
+            </view>
+          </block>
+        </view>
+      </view>
+      
+
+      <view class="margin-grey"></view>
+      
+      <view class='foot-v'>-- 到底了 --</view>
+</view>

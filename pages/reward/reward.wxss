@@ -1,0 +1,84 @@
+/* pages/reward/reward.wxss */
+
+.reward-btn{
+  background: #CD9B1D;
+  margin-left: 85rpx;
+  margin-top: 65rpx;
+  width: 140rpx;
+  height: 140rpx;
+  display: inline-block;
+  position: relative;
+  border-radius: 15%;
+}
+
+.re-img{
+  width: 140rpx;
+  height: 140rpx;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 120;
+}
+.re-txt{
+  width: 140rpx;
+  height: 140rpx;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 130;
+  color: wheat;
+  margin-top: 80rpx;
+  font-size: 36rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+.re-txt-alert{
+  width: 140rpx;
+  height: 140rpx;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 130;
+  color: wheat;
+  margin-top: 80rpx;
+  font-size: 36rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+.re-bg-v{
+  position: relative;
+}
+.re-bg-img{
+  width: 100%;
+  /* height: 360rpx; */
+  background: #eef;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 120;
+}
+.re-bg-txt{
+  width: 750rpx;
+  bottom: -180rpx;
+  left: 0;
+  position: absolute;
+  z-index: 140;
+  color: white;
+  margin-top: 80rpx;
+  font-size: 40rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+.hide{
+  display: none;
+}
+.clear{
+  clear: both;
+}
+
+
+.po-height{
+  height: 320rpx;
+}

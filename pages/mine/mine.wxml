@@ -1,0 +1,59 @@
+<!--pages/mine/mine.wxml-->
+<text class='hide'>个人登录头像、登录名、已经生成祝福模板将显示在这里</text>
+<view>
+  <!--开始-用户信息  -->
+  <view>
+    <view class='user'>
+      <image src='../../images/user-bg.png' class='user-bg'></image>
+      <view class='user-v' wx:for='{{user_info}}'>
+        <image src='{{item.headimgurl}}' class='user-head'  bindtap='userimg'></image>
+        <text class='user-nickname'>{{item.nickname}}</text>
+      </view>
+    </view>
+    <view class='clear user-padding'></view>
+
+
+    <view class='padding-top'>
+      <!--类  -->
+        <view class='cell-title'>
+          <view class='cell-title-icon'></view>
+          <text class='cell-title-txt'>功能</text>
+          <view class='clear'></view>
+        </view>
+        <!--cell  -->
+        <view class='table-cell' bindtap='history'>
+          <text class='cell-txt'>模板历史生成</text>
+          <text class='cell-img'>></text>
+          <view class='clear'></view>
+        </view>
+
+        <view class='clear'></view>
+    </view>
+
+    <view class='padding-top'>
+      
+        <!--类  -->
+        <view class='cell-title'>
+          <view class='cell-title-icon'></view>
+          <text class='cell-title-txt'>其他</text>
+          <view class='clear'></view>
+        </view>
+
+        <!--cell  -->
+        <view class='table-cell' bindtap='reward'>
+          <text class='cell-txt'>打赏小编</text>
+          <text class='cell-img'>></text>
+          <view class='clear'></view>
+        </view>
+        <!--cell  -->
+        <view class='table-cell' bindtap='about'>
+          <text class='cell-txt'>关于</text>
+          <text class='cell-img'>></text>
+          <view class='clear'></view>
+        </view>
+
+        <view class='clear'></view>
+    </view>
+  </view>
+  <!--结束-用户信息  -->
+</view>

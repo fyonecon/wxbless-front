@@ -1,0 +1,100 @@
+/* pages/mine/mine.wxss */
+
+.user{
+  position: relative;
+  /* height: 120rpx; */
+  width: 100%;
+}
+.user-padding{
+  height: 220rpx;
+}
+.user-bg{
+  width: 100%;
+  height: 220rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 120;
+  float: left;
+  background: #FFFFF0;
+}
+.user-v{
+  text-align: center;
+  padding-top: 25rpx;
+  padding-bottom: 20rpx;
+  /* background: #FFFFF0; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 130;
+  width: 100%;
+}
+.user-head{
+  width: 120rpx;
+  height: 120rpx;
+  background: #eee;
+  border: 1rpx solid #CD9B1D;
+  border-radius: 50%;
+  clear: both;
+  text-align: center;
+}
+.user-nickname{
+  display: block;
+  font-size: 32rpx;
+  color: grey;
+  letter-spacing: 1rpx;
+  margin-top: 10rpx;
+}
+.hide{
+  display: none;
+}
+
+.table-cell{
+  border-bottom: 1rpx solid #eee;
+  border-top: 1rpx solid #eee;
+  /* background: #eee; */
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 15rpx;
+}
+.table-cell:active{
+  /* opacity: 0.8; */
+  background: #eee;
+}
+.cell-txt{
+  float: left;
+  color: grey;
+  padding-left: 25rpx;
+}
+.cell-img{
+  float: right;
+  color: grey;
+  padding-right: 25rpx;
+}
+.clear{
+  clear: both;
+}
+
+.cell-title{
+  height: 60rpx;
+  width: 100%;
+  margin-top: 15rpx;
+}
+.cell-title-icon{
+  width: 10rpx;
+  height: 60rpx;
+  background: #eee;
+  float: left;
+  margin-left: 15rpx;
+}
+.cell-title-txt{
+  color: #C4C4C4;
+  font-size: 30rpx;
+  float: left;
+  padding-top: 13rpx;
+  margin-left: 20rpx;
+}
+
+.padding-top{
+  padding-top: 15rpx;
+}

@@ -1,0 +1,26 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.hide{
+  display: none;
+}
+.clear{
+  clear: both;
+}
+
+.foot-v{
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  color: lightgrey;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
