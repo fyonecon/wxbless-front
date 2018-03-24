@@ -27,7 +27,7 @@
         </view>
         <!--双击点赞 -->
         <view class='zan-box'>
-            <image src='../../images/zan.png' class='zan-img' bindtap='img_zan'></image>
+            <image src='../../images/zan.png' animation="{{animationData_icon}}" class='zan-img'  bindtap='img_zan'></image>
             <text class='zan-num'>{{zan_num}}</text>
         </view>
         <view class='clear'></view>

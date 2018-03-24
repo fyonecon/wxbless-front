@@ -223,6 +223,13 @@ Page({
         })
         //结束-提交双击赞
 
+        //爱心计数的动画
+        animation.scale3d(1.5, 1.5, 1.5).translateY(-5).rotateY(180).opacity(1).step()
+        animation.scale3d(1, 1, ).translateY(0).rotateY(-180).opacity(1).step()
+        this.setData({
+          animationData_icon: animation.export()
+        })
+
         
         //一帧动画
         this.setData({
