@@ -8,6 +8,22 @@
   width: 100%;
 }
 
+.bless-name-img{
+  width: 520rpx;
+  margin-top: 35rpx;
+  height: 26rpx;
+}
+.bless-name-txt{
+  position: absolute;
+  line-height: 90rpx;
+   top: 0rpx; 
+  left: 0;
+  right:0;
+  margin: auto;
+  z-index: 90;
+  color: rgb(218,192,148);
+  letter-spacing: 2px;
+}
 
 .hide{
   display: none;
@@ -18,10 +34,12 @@
 }
 
 .bless-name{
+  position: relative;
   text-align: center;
   font-size: 18px;
   display: block;
-  padding: 20rpx 0;
+  /* padding: 20rpx 0; */
+  height: 90rpx;
   background-color: white;
   border-bottom: 1px #eee solid;
   color: #454545;
@@ -58,7 +76,7 @@
 .bless-img-box{
   width: 330rpx;
   height: 280rpx;
-  display: inline-block; 
+  display: inline-block !important; 
   padding-bottom: 20rpx;
   margin-top: 20rpx;
 }

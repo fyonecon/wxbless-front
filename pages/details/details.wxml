@@ -5,11 +5,15 @@
     <view class="detail-bg-img-box">
       <image src="{{item.img_url}}" class="detail-bg-img"></image>
     </view>
+    <!--模糊图片容器  -->
+    <view class="detail-bg-img-box2">
+      
+    </view>
     <!--文字容器  -->
     <view class="txt-box">
       <!--音乐  -->
       <view class='music-v'>
-        <image src="../../images/btn_music_play.png" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
+        <image src="../../images/btn_music_play.gif" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
         <image src="../../images/btn_music_close.png" class='music-img' bindtap="audioPlay"style='height:{{stylePause}}rpx;'></image> 
         <audio name="{{item.music_name}}" src="{{item.music_src}}" class='myAudio hide' id="myAudio" controls loop bindplay="funplay" bindpause="funpause"  binderror="funerror"></audio>
       </view>
@@ -17,7 +21,9 @@
       <view class='clear'></view>
 
       <view class='form-v'>
+        <image class='edit-bg' src='../../images/edit-bg.png'></image>
 
+        <view class='edit-box'>
         <form bindsubmit="formSubmit" >
 
           <!-- <text class='bless-title qinai'>亲爱的</text> -->
@@ -45,6 +51,7 @@
             <button class='btn-post'  formType="submit">立即生成祝福贺卡</button>
           </view>
         </form>
+        </view>
 
       </view>
     </view>

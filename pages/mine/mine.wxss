@@ -70,6 +70,9 @@
   float: right;
   color: grey;
   padding-right: 25rpx;
+  height: 34rpx;
+  width: 22rpx;
+  margin-top: 30rpx;
 }
 .clear{
   clear: both;

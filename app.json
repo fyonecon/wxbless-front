@@ -7,12 +7,13 @@
     "pages/reward/reward",
     "pages/mine/mine",
     "pages/about/about",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "祝福你",
+    "navigationBarTitleText": "祝福妳",
     "navigationBarTextStyle": "#fff"
   },
   "tabBar": {
@@ -21,7 +22,7 @@
         "pagePath": "pages/index/index",
         "text": "首 页",
         "color": "#68838B",
-        "selectedColor": "#CD9B1D",
+        "selectedColor": "#F0445F",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-selected.png"
       },
@@ -29,7 +30,7 @@
         "pagePath": "pages/mine/mine",
         "text": "我 的",
         "color": "#68838B",
-        "selectedColor": "#CD9B1D",
+        "selectedColor": "#F0445F",
         "iconPath": "images/mine.png",
         "selectedIconPath": "images/mine-selected.png"
       }

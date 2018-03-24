@@ -17,6 +17,10 @@ Page({
     stylePlay: "0",
     playN: "none",
 
+    startPoint: [0, 0],
+
+    hide: 'none',
+
   },
 
   // 监听暂停播放按钮
@@ -75,7 +79,7 @@ Page({
 
     
     wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/user_bless/only_num/' + options.only_num, 
+      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/user_bless/only_num/' + only_num_, 
       headers: {
         'Content-Type': 'application/json'
       },
@@ -89,9 +93,36 @@ Page({
 
     }),
 
+    //第一次请求赞的数量
+    wx.request({
+      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Zan/zan_num/&only_num=' + only_num_,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+
+        if (!res.data.content){
+          //将获取到的json数据
+          that.setData({
+            zan_num: '0', //res代表success函数的事件对，data是固定的，content是是上面json数据中content
+
+          })
+        }else{
+          //将获取到的json数据
+          that.setData({
+            zan_num: res.data.content, //res代表success函数的事件对，data是固定的，content是是上面json数据中content
+
+          })
+        }
+
+        
+      }
+
+    }),
+
     //在导航栏显示模板名
     wx.setNavigationBarTitle({
-      title: "已生成：" + options.detail_title,
+      title: "" + options.detail_title,
     })
 
   },
@@ -101,6 +132,192 @@ Page({
     wx.navigateTo({
       url: '../reward/reward',
     })
+  },
+
+  img_zan: function(){
+    wx.showToast({
+      title: '双击空白处可持续点赞',
+      icon: 'none',
+      duration: 2000
+    })
+    setTimeout(function () {
+    }, 2000)
+  },
+
+  //点赞
+  zan: function(e){
+    console.log('点');
+    var that = this
+
+    var curTime = e.timeStamp;
+    var lastTime = this.data.lastTapDiffTime;
+
+    var x = 0;
+    var y = 0;
+    var w = 0;
+    var h = 0;
+
+    //定义动画
+    var animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-in',
+    })
+    //动画
+    this.animation = animation
+
+    if(lastTime > 0){
+
+      //双击判断
+      if(curTime - lastTime < 300){
+        console.log('双击')
+
+        //获取当前手指屏幕坐标
+        var touch = e.touches[0]; //获取第一个触点
+        x = Number(touch.pageX); //触点X坐标
+        y = Number(touch.pageY); //触点Y坐标
+
+        //获取屏幕宽、高
+        w = wx.getSystemInfoSync().windowWidth //屏幕宽/像素
+        h = wx.getSystemInfoSync().windowHeight //屏幕高/像素
+
+        console.log('x='+x)
+        console.log('y='+y)
+        console.log('w=' + w)
+        console.log('h=' + h)  
+
+        //开始-提交双击赞
+        wx.request({
+          url: 'https://www.djfans.net/wxbless_bg3/index.php?s=/Home/Zan/zan/&only_num=' + only_num_,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log('双击赞提交成功')
+            //提交成功后，再次查询赞的实时值
+            wx.request({
+              url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Zan/zan_num/&only_num=' + only_num_,
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              success: function (res) {
+                that.setData({
+                  zan_num: res.data.content, 
+                })
+
+              }
+            })
+           
+          },fail: function(){
+            console.log('双击赞提交失败')
+            wx.showToast({
+              title: '网络不通',
+              icon: 'none',
+              duration: 800
+            })
+            setTimeout(function () {
+            }, 800)
+
+            return;
+          }
+
+        })
+        //结束-提交双击赞
+
+        
+        //一帧动画
+        this.setData({
+          left: x - 15,
+          top: y - 12,
+          hide: 'inline-block',
+          animationData: {},
+        })
+        animation.scale3d(2, 2, 2).translateY(-40).rotate(0).opacity(0.7).step()
+        this.setData({
+          animationData: animation.export()
+        })
+        
+        //动画消失
+        setTimeout(function () {
+          that.setData({
+            hide: 'none',
+          })
+          //还原动画状态
+          animation.scale3d(0, 0, 0).translateY(0).rotate(0).opacity(1).step()
+          that.setData({
+            animationData: animation.export()
+          })
+
+        }, 550)
+
+
+        // 2
+        //一帧动画
+        this.setData({
+          left2: x - 15,
+          top2: y - 12,
+          animationData2: {},
+        })
+        animation.scale3d(1.3, 1.3, 1.3).translateY(-15).translateX(-20).rotate(0).opacity(0.7).step()
+        this.setData({
+          animationData2: animation.export()
+        })
+
+        //动画消失
+        setTimeout(function () {
+          //还原动画状态
+          animation.scale3d(0, 0, 0).translateY(0).translateX(0).rotate(0).opacity(1).step()
+          that.setData({
+            animationData2: animation.export()
+          })
+
+        }, 500)
+
+
+        //3
+        //一帧动画
+        this.setData({
+          left3: x - 15,
+          top3: y - 12,
+          animationData3: {},
+        })
+        animation.scale3d(1.3, 1.3, 1.3).translateY(-15).translateX(20).rotate(0).opacity(0.7).step()
+        this.setData({
+          animationData3: animation.export()
+        })
+
+        //动画消失
+        setTimeout(function () {
+          //还原动画状态
+          animation.scale3d(0, 0, 0).translateY(0).translateX(0).rotate(0).opacity(1).step()
+          that.setData({
+            animationData3: animation.export()
+          })
+
+        }, 500)
+
+
+
+      }else{
+        console.log('没有双击成功')
+        that.setData({
+          hide: 'none',
+        })
+        //还原动画状态
+        animation.scale3d(0, 0, 0).translateY(0).rotate(0).opacity(1).step()
+        that.setData({
+          animationData: animation.export()
+        })
+      }
+
+    }else{
+      console.log('点了一下')
+    }
+
+    this.setData({
+      lastTapDiffTime: curTime,
+    })
+
+
   },
 
   //返回首页

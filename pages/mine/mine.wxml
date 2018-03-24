@@ -23,7 +23,8 @@
         <!--cell  -->
         <view class='table-cell' bindtap='history'>
           <text class='cell-txt'>模板历史生成</text>
-          <text class='cell-img'>></text>
+          <!-- <text class='cell-img'>></text> -->
+          <image class='cell-img' src='../../images/right-arr.png'></image>
           <view class='clear'></view>
         </view>
 
@@ -42,13 +43,13 @@
         <!--cell  -->
         <view class='table-cell' bindtap='reward'>
           <text class='cell-txt'>打赏小编</text>
-          <text class='cell-img'>></text>
+          <image class='cell-img' src='../../images/right-arr.png'></image>
           <view class='clear'></view>
         </view>
         <!--cell  -->
         <view class='table-cell' bindtap='about'>
           <text class='cell-txt'>关于</text>
-          <text class='cell-img'>></text>
+          <image class='cell-img' src='../../images/right-arr.png'></image>
           <view class='clear'></view>
         </view>
 

@@ -3,28 +3,37 @@
   <!-- <view>show you</view> -->
   <block wx:for="{{had_detail}}"> 
     <!--背景图片容器  -->
-    <view class="detail-bg-img-box">
+    <view class="detail-bg-img-box" bindtap='zan'>
       <image src="{{item.img_url}}" class="detail-bg-img"></image>
     </view>
     <!--文字容器  -->
     <view class="txt-box">
       <!--音乐  -->
       <view class='music-v'>
-        <image src="../../images/btn_music_play.png" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
+        <image src="../../images/btn_music_play.gif" class='music-img' bindtap="audioPause" style='height:{{stylePlay}}rpx;display:{{playN}}'></image> 
         <image src="../../images/btn_music_close.png" class='music-img' bindtap="audioPlay"style='height:{{stylePause}}rpx;'></image> 
         <audio name="{{item.music_name}}" src="{{item.music_src}}" class='myAudio hide' id="myAudio" controls loop bindplay="funplay" bindpause="funpause"  binderror="funerror"></audio>
       </view>
       
       <view class='clear'></view>
 
-      <view class='make-pe'>
-        <!-- <text class='bless-title'>亲爱的</text> -->
-        <view class='height'></view>
-        <text class='bless-title bl-name'>{{item.content}}</text>
-        <view class='height'></view>
-        <text class='bless-title'>这是送给你的祝福</text> 
+      <view class='make-pe'  bindtap='zan'>
+        <view class='make-pe-xtx-box'>
+          <!-- <text class='bless-title'>亲爱的</text> -->
+          <view class='height'></view>
+          <text class='bless-title bl-name'>{{item.content}}</text>
+          <view class='height'></view>
+          <text class='bless-title'>这是送给你的祝福</text>
+        </view>
+        <!--双击点赞 -->
+        <view class='zan-box'>
+            <image src='../../images/zan.png' class='zan-img' bindtap='img_zan'></image>
+            <text class='zan-num'>{{zan_num}}</text>
+        </view>
+        <view class='clear'></view>
       </view>
 
+      <view class='clear'></view>
     </view>
     <!--分享  -->
     <!-- <view class='share'>
@@ -71,4 +80,11 @@
     </button> -->
 
   </block>
+
+  <!--屏幕爱心的实时坐标  -->
+  <image animation="{{animationData}}" class='an-zan' src='../../images/animate-zan.png' style='left:{{left}}px;top: {{top}}px;display: {{hide}};'></image>
+  <image animation="{{animationData2}}" class='an-zan' src='../../images/animate-zan.png' style='left:{{left2}}px;top: {{top2}}px;display: {{hide}};'></image>
+  <image animation="{{animationData3}}" class='an-zan' src='../../images/animate-zan.png' style='left:{{left3}}px;top: {{top3}}px;display: {{hide}};'></image>
+
+
 </view>

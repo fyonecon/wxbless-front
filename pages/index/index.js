@@ -21,7 +21,7 @@ Page({
 
     var that = this//不要漏了这句，很重要
 
-    //请求轮播图
+    // 开始-请求轮播图
     wx.request({
       url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Slider',
       headers: {
@@ -36,98 +36,35 @@ Page({
         })
       }
     })
-    
-    //节日祝福  1
+    // 结束
+
+    // 开始-请求大分类和子类
     wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/1',
+      url: 'https://www.djfans.net/wxbless_bg3/index.php?s=/Home/Bless/bless_and_detail',
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         //将获取到的json数据，存在名字叫slider2的这个数组中
+
         that.setData({
-          jrzf: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-          
+          title: res.data,
         })
+        console.log(res.data);
+        console.log(res.data[1].detail[0].bless_title);
       }
     })
-
-    //节日祝福  9
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/9',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          essjq: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //阿弥陀福  7
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/7',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          emtf: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //福气延绵  3
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/3',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          fqym: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //问候朋友  8
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/8',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          whpy: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-    
+    // 结束
 
   },
 
 
   //下拉刷新
   onPullDownRefresh: function () {
-
-
+    console.log('下拉刷新');
     var that = this//不要漏了这句，很重要
 
-    //请求轮播图
+    // 开始-请求轮播图
     wx.request({
       url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Slider',
       headers: {
@@ -142,87 +79,25 @@ Page({
         })
       }
     })
+    // 结束
 
-    //节日祝福  1
+    // 开始-请求大分类和子类
     wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/1',
+      url: 'https://www.djfans.net/wxbless_bg3/index.php?s=/Home/Bless/bless_and_detail',
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          jrzf: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
 
+        that.setData({
+          title: res.data,
         })
+        console.log(res.data);
+        console.log(res.data[1].detail[0].bless_title);
       }
     })
-
-    //节日祝福  9
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/9',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          essjq: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //阿弥陀福  7
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/7',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          emtf: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //福气延绵  3
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/3',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          fqym: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-      }
-    })
-
-    //问候朋友  8
-    wx.request({
-      url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/index/blesslist_id/8',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫slider2的这个数组中
-        that.setData({
-          whpy: res.data.content,
-          //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
-        })
-
-      }
-    })
+    // 结束
     
     wx.showToast({
       title: '下拉刷新..',

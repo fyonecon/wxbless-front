@@ -1,0 +1,60 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+
+<view>dom={{dom}}</view>
+
+<view>
+
+  <view wx:for='{{title}}'>
+    <view>{{item.blesslist_name}}=</view>
+
+    <view>{{item.detail[0].bless_title}}</view>
+    <view>{{item.detail[0].cover_url}}</view>
+    <view>{{item.detail[0].blessdetail_id}}</view>
+
+    <view>{{item.detail[1].bless_title}}</view>
+    <view>{{item.detail[1].cover_url}}</view>
+    <view>{{item.detail[1].blessdetail_id}}</view>
+    
+    <view>{{item.detail[2].bless_title}}</view>
+    <view>{{item.detail[2].cover_url}}</view>
+    <view>{{item.detail[2].blessdetail_id}}</view>
+
+    <view>{{item.detail[3].bless_title}}</view>
+    <view>{{item.detail[3].cover_url}}</view>
+    <view>{{item.detail[3].blessdetail_id}}</view>
+
+    <view>{{item.detail[4].bless_title}}</view>
+    <view>{{item.detail[4].cover_url}}</view>
+    <view>{{item.detail[4].blessdetail_id}}</view>
+
+    <view>{{item.detail[5].bless_title}}</view>
+    <view>{{item.detail[5].cover_url}}</view>
+    <view>{{item.detail[5].blessdetail_id}}</view>
+
+    <view>{{item.detail[6].bless_title}}</view>
+    <view>{{item.detail[6].cover_url}}</view>
+    <view>{{item.detail[6].blessdetail_id}}</view>
+
+    <view>{{item.detail[7].bless_title}}</view>
+    <view>{{item.detail[7].cover_url}}</view>
+    <view>{{item.detail[7].blessdetail_id}}</view>
+
+    <view>{{item.detail[8].bless_title}}</view>
+    <view>{{item.detail[8].cover_url}}</view>
+    <view>{{item.detail[8].blessdetail_id}}</view>
+
+    <view>{{item.detail[9].bless_title}}</view>
+    <view>{{item.detail[9].cover_url}}</view>
+    <view>{{item.detail[9].blessdetail_id}}</view>
+
+    <view>{{item.detail[10].bless_title}}</view>
+    <view>{{item.detail[10].cover_url}}</view>
+    <view>{{item.detail[10].blessdetail_id}}</view>
+
+      
+  </view>
+
+</view>
+
+

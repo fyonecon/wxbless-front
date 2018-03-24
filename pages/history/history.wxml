@@ -1,7 +1,7 @@
 <!--pages/history/history.wxml-->
 <text class='hide'>pages/history/history.wxml</text>
 <view wx:for='{{history}}'>
-   <view class="his-cell " data-id='{{item.id}}' bindtap='del_history'>
+   <view class="his-cell " data-id='{{item.id}}' data-only_num='{{item.only_num}}' data-content='{{item.content}}' data-detail_title='{{item.detail_title}}' bindtap='del_history'>
      <!--模板名称  -->
      <view class='det'>
        模板：{{item.detail_title}}
@@ -9,6 +9,10 @@
      <!--填入的内容  -->
      <view class='cont'>
        {{item.content}}
+     </view>
+     <!--创建时间  -->
+     <view class='cont'>
+       {{item.create_time}}
      </view>
    </view>
 </view>
