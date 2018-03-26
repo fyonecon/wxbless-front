@@ -24,3 +24,6 @@
   font-size: 30rpx;
   line-height: 80rpx;
 }
+.btn-post:active{
+  opacity: 0.8;
+}

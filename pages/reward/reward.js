@@ -14,6 +14,15 @@ var order_sn = ''
 var payInfo = {};
 var formData3 = {};
 
+var nickName_ = '';
+var avatarUrl_ = '';
+var gender_ = '';
+var city_ = '';
+var province_ = '';
+var country_ = '';
+
+var formData2 = {};
+
 Page({
 
   /**
@@ -58,7 +67,7 @@ Page({
               //console.log(wx.getStorageSync('openid'));
 
 
-              //获取用户信息 2/3
+              //开始- 获取用户信息 2/3
               wx.getUserInfo({
                 success: function (res) {
 
@@ -108,7 +117,85 @@ Page({
 
 
                 },
+                fail: function (res) {
+                  
+                  //开始-重新授权
+                  wx.showToast({
+                    title: '未授权',
+                    icon: 'none',
+                    duration: 800
+                  })
+                  setTimeout(function () {
+                  }, 600)
+
+                  wx.openSetting({
+                    success: function (res) {
+                      wx.showToast({
+                        title: '获取成功',
+                        icon: 'none',
+                        duration: 800
+                      })
+
+                      //重写信息获取
+                      wx.getUserInfo({
+                        success: function (res) {
+                          console.log(res.userInfo);
+
+                          //变量重新赋值
+                          nickName_ = res.userInfo.nickName;
+                          avatarUrl_ = res.userInfo.avatarUrl;
+                          gender_ = res.userInfo.gender;
+                          city_ = res.userInfo.city;
+                          province_ = res.userInfo.province;
+                          country_ = res.userInfo.country;
+
+
+                          //提交用户信息 3/3
+                          formData2 = { open_id: openid, nickname: nickName_, headimgurl: avatarUrl_, sex: gender_, city: city_, province: province_, country: country_ };
+                          console.log(formData2);
+                          //上传用户信息
+                          wx.request({
+                            url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/User/add_app_user',
+                            data: formData2,
+                            header: {
+                              'Content-Type': 'application/json'
+                            },
+                            method: "get",
+                            success: function (res) {
+                              wx.showToast({
+                                title: '用户信息再生成',
+                                icon: 'none',
+                                duration: 500
+                              })
+                              setTimeout(function () {
+                              }, 500)
+
+                            },
+                            fail: function (res) {
+                              wx.showToast({
+                                title: '生成信息失败',
+                                icon: 'none',
+                                duration: 800
+                              })
+                              setTimeout(function () {
+                              }, 600)
+                            }
+                          })
+
+
+                        }
+
+                      })
+
+                    }
+                  })
+                //接受-重新授权
+
+
+                }
+                
               })
+              //结束-
 
 
             }
@@ -123,14 +210,79 @@ Page({
 
       //还为空，就测试一下
       if (!open_id) {
-        wx.showToast({
-          title: '先在首页授权',
-          icon: 'none',
-          duration: 2000
-        })
-        setTimeout(function () {
-        }, 2000)
+        
         console.log('在没有openid的情况下再次尝试登录失败。');
+
+        wx.openSetting({
+          success: function (res) {
+            wx.showToast({
+              title: '获取成功',
+              icon: 'none',
+              duration: 800
+            })
+
+            //重写信息获取
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res.userInfo);
+
+                openid = res.data.wx_info.openid;
+                wx.setStorageSync('openid', openid); //将openid保存在本地
+                
+                //变量重新赋值
+                nickName_ = res.userInfo.nickName;
+                avatarUrl_ = res.userInfo.avatarUrl;
+                gender_ = res.userInfo.gender;
+                city_ = res.userInfo.city;
+                province_ = res.userInfo.province;
+                country_ = res.userInfo.country;
+
+
+                //提交用户信息 3/3
+                formData2 = { open_id: openid, nickname: nickName_, headimgurl: avatarUrl_, sex: gender_, city: city_, province: province_, country: country_ };
+                console.log(formData2);
+                //上传用户信息
+                wx.request({
+                  url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/User/add_app_user',
+                  data: formData2,
+                  header: {
+                    'Content-Type': 'application/json'
+                  },
+                  method: "get",
+                  success: function (res) {
+                    wx.showToast({
+                      title: '用户信息再生成',
+                      icon: 'none',
+                      duration: 500
+                    })
+                    setTimeout(function () {
+                    }, 500)
+
+                  },
+                  fail: function (res) {
+                    wx.showToast({
+                      title: '生成信息失败',
+                      icon: 'none',
+                      duration: 800
+                    })
+                    setTimeout(function () {
+                    }, 600)
+                  }
+                })
+
+
+              }
+
+            })
+
+          }
+        })
+
+        wx.redirectTo({
+          url: '../index/index',
+        })
+
+
       }
 
 

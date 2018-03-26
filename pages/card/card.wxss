@@ -1,0 +1,55 @@
+/* pages/card/card.wxss */
+
+.card-v{
+  padding:0rpx 30rpx;
+  margin-bottom: 10rpx;
+}
+.input{
+  width: cal(100% - 30rpx);
+  height: 30px;
+  background: #eee;
+  border: 1rpx solid #eee;
+  font-size: 15px;
+   line-height: 22px; 
+  color: grey;
+  padding-left: 5px; 
+  border-radius: 3px;
+}
+.input-example{
+  width: 680rpx;
+  height: 120px;
+  background: #eee;
+  border: 1rpx solid #eee;
+  font-size: 15px;
+  line-height: 22px; 
+  color: grey;
+  padding-left: 5px; 
+  border-radius: 3px;
+}
+.lable-title{
+  font-size: 16px;
+  color: #CD9B1D;
+  letter-spacing: 1px;
+  padding: 5px 0px;
+  display: block;
+}
+
+.btn-post{
+  border-radius: 80rpx;
+  height: 80rpx;
+  color: white;
+  font-size: 34rpx;
+  background-color: rgba(242,147,69, 1);
+  margin-top: 60rpx;
+  width: 500rpx;
+  line-height: 80rpx;
+  letter-spacing: 2rpx;
+}
+.alert-txt{
+   font-size: 14px;
+   color: grey;
+   text-align: center;
+   padding: 10px 20px;
+   line-height: 20px;
+   display: block;
+}

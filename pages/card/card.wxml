@@ -1,0 +1,40 @@
+<!--pages/card/card.wxml-->
+<text class='hide'>pages/card/card.wxml</text>
+<!--开始-容器  -->
+<view>
+
+  <form  bindsubmit="formSubmit">
+    <input name='openid' class='hide' value='{{openid}}'/>
+    <view class='card-v'>
+      <text class='lable-title'>姓名/Name</text>
+      <input name='name' placeholder='姓名' class='input input-name' value='{{name}}'/>
+    </view>
+    <view class='card-v'>
+      <text class='lable-title'>电话/Tel</text>
+      <input name='tel' placeholder='手机号或者电话号'  class='input input-tel' value='{{tel}}'/>
+    </view>
+    <view class='card-v'>
+      <text class='lable-title'>公司/Companny</text>
+      <input name='com' placeholder='公司名' class='input input-com' value='{{com}}'/>
+    </view>
+    <view class='card-v'>
+      <text class='lable-title'>职务/Job</text>
+      <input name='work' placeholder='职务' class='input input-work' value='{{work}}'/>
+    </view>
+    <view class='card-v'>
+      <text class='lable-title'>说明/Instruction</text>
+      <textarea  name='example' placeholder='说明文字' class='input-example' value='{{example}}'></textarea>
+    </view>
+
+    <button class='btn-post'  formType="submit">提交/POST</button>
+
+  </form>
+
+  <!-- <view><button>预览</button></view> -->
+  <!--提示  -->
+  <text class='alert-txt'>
+    都为非必填选项。个人名片将伴随你生成的祝福一起分享出去，希望你将他们填写完整。
+  </text>
+
+</view>
+<!--结束-容器  -->

@@ -86,6 +86,16 @@ Page({
     })
     
   },
+  card: function (){
+    console.log("card");
+    wx.navigateTo({
+      url: '../card/card',
+      success: function (res) {
+        console.log('成功');
+
+      }
+    })
+  },
 
   reward: function () {
     console.log("reward");

@@ -27,6 +27,13 @@
           <image class='cell-img' src='../../images/right-arr.png'></image>
           <view class='clear'></view>
         </view>
+        <!--cell  -->
+        <view class='table-cell' bindtap='card'>
+          <text class='cell-txt'>个人名片</text>
+          <!-- <text class='cell-img'>></text> -->
+          <image class='cell-img' src='../../images/right-arr.png'></image>
+          <view class='clear'></view>
+        </view>
 
         <view class='clear'></view>
     </view>

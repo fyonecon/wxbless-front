@@ -3,8 +3,75 @@
   <!-- <view>show you</view> -->
   <block wx:for="{{had_detail}}"> 
     <!--背景图片容器  -->
-    <view class="detail-bg-img-box" bindtap='zan'>
-      <image src="{{item.img_url}}" class="detail-bg-img"></image>
+    <view class="detail-bg-img-box">
+      <!-- <image src="{{item.img_url}}" class="detail-bg-img"></image> -->
+      <!-- 水平滑动 -->
+      <!-- <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;height:100%;width:100%;" >
+        <view class="detail-bg-v">
+          <image src="{{item.img_url}}" class="detail-bg-img"></image>
+        </view>
+        <view class="detail-bg-v">
+          <image src="{{item.img_url}}" class="detail-bg-img"></image>
+        </view>
+        
+      </scroll-view> -->
+
+      <swiper style="width:100%;height:100%;" indicator-dots="{{indicatorDots}}" class="swiper" autoplay="true" interval="4000" duration="500">
+          <!-- 模板图 -->
+          <swiper-item class='bg-255'  bindtap='zan'>    
+            <image src="{{item.img_url}}" class="detail-bg-img" mode="aspectFill" />   
+          </swiper-item>
+          <!-- 个人名片  -->
+          <swiper-item class='bg-255'>
+            <!-- 生成者的信息 -->
+            <view class='user-view'  bindtap='zan'>
+                <view class='user'>
+                  <image src='../../images/user-bg.png' class='user-bg'></image>
+                  <view class='user-v' wx:for='{{user_info}}'>
+                    <image src='{{item.headimgurl}}' class='user-head'  bindtap='userimg'></image>
+                    <text class='user-nickname'>{{item.nickname}}</text>
+                  </view>
+                </view>
+            </view>
+            <!-- 名片信息  -->
+            <view class='card {{hide}}'>
+
+              <view class='card-item'>
+                <text class='label'>名片</text>
+                <text class='label-content'>{{name}}</text>
+                <view class='clear'></view>
+              </view>
+
+              <view class='card-item'>
+                <text class='label'>电话</text>
+                <text class='label-content' bindtap='call'><text class='blue'>{{tel}}</text><text class='oo'>（点击号码可直接拨打）</text></text>
+                <view class='clear'></view>
+              </view>
+
+              <view class='card-item'>
+                <text class='label'>公司</text>
+                <text class='label-content'>{{com}}</text>
+                <view class='clear'></view>
+              </view>
+
+              <view class='card-item'>
+                <text class='label'>职务</text>
+                <text class='label-content'>{{work}}</text>
+                <view class='clear'></view>
+              </view>
+
+              <view class='card-item'>
+                <text class='label'>说明</text>
+                <text class='label-content'>{{example}}</text>
+                <view class='clear'></view>
+              </view>
+            
+            </view>
+
+          </swiper-item> 
+      </swiper> 
+
+
     </view>
     <!--文字容器  -->
     <view class="txt-box">
@@ -27,7 +94,7 @@
         </view>
         <!--双击点赞 -->
         <view class='zan-box'>
-            <image src='../../images/zan.png' animation="{{animationData_icon}}" class='zan-img'  bindtap='img_zan'></image>
+            <image src='../../images/zan.png' animation="{{animationData_icon}}" class='zan-img' bindtap='img_zan'></image>
             <text class='zan-num'>{{zan_num}}</text>
         </view>
         <view class='clear'></view>

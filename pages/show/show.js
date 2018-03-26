@@ -5,12 +5,17 @@ var only_num_ = '';//已生成唯一随机数
 var content_ = '';//内容
 var nav_title_ = '';//导航栏标题
 
+var openid = ''
+var phonenum = 0
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
+    indicatorDots: false,
 
     //音乐样式
     stylePause: "70",
@@ -76,7 +81,6 @@ Page({
       // detail_title: options.detail_title, //模板名
       // only_num: options.only_num, //属于单独页面的唯一随机数
     }),
-
     
     wx.request({
       url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Bless/user_bless/only_num/' + only_num_, 
@@ -84,11 +88,73 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        openid = res.data.content[0].user_id //赋值数据库中的openid
+        console.log(openid)
         //将获取到的json数据
         that.setData({
           had_detail: res.data.content, //res代表success函数的事件对，data是固定的，content是是上面json数据中content
-
+          
         })
+
+
+        //请求用户信息
+        wx.request({
+          url: 'https://www.djfans.net/wxbless_bg3/index.php?s=/home/user/user_info/open_id/' + openid,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            //将获取到的json数据，存在名字叫slider2的这个数组中
+            that.setData({
+              user_info: res.data.content,
+              //res代表success函数的事件对，data是固定的，content是是上面json数据中content
+
+            })
+            console.log(res.data.content)
+
+          }
+        })
+
+
+        //请求用户名片信息
+        wx.request({
+          url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/Card/card/openid/' + openid,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log(openid)
+            console.log(res.data.content)
+
+            if (!res.data.content[0].openid) {
+              console.log("数据库openid不存在")
+              that.setData({
+                hide: hide,
+              })
+              return;
+            }
+            console.log(res.data.content[0].name)
+
+            phonenum = res.data.content[0].tel
+
+            //将获取到的json数据，存在名字叫slider2的这个数组中
+            that.setData({
+              user_card: res.data.content,
+              //res代表success函数的事件对，data是固定的，content是是上面json数据中content
+              name: res.data.content[0].name,
+              tel: res.data.content[0].tel,
+              work: res.data.content[0].work,
+              com: res.data.content[0].com,
+              example: res.data.content[0].example,
+
+            })
+
+          }
+        })
+
+
+
+
       }
 
     }),
@@ -126,6 +192,22 @@ Page({
     })
 
   },
+  
+  //打电话
+  call: function(){
+    console.log("打电话" + phonenum)
+    wx.makePhoneCall({
+      phoneNumber: phonenum, //此号码并非真实电话号码，仅用于测试  
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
+    })  
+
+  },
+
 
   //打赏
   reward: function(){

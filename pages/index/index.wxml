@@ -4,7 +4,7 @@
   <!--轮播图  -->
   <view>
     <!--轮播 -->
-    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">  
+    <swiper class="swiper" indicator-dots="true"  indicator-active-color="#CD9B1D" autoplay="true" interval="{{interval}}" duration="{{duration}}">  
         <swiper-item class="banner" wx:for="{{slider}}">
             <image src="{{item.cover_url}}" bindtap='swiper_nav' data-blessdetail_id='{{item.blessdetail_id}}' data-bless_title='{{item.bless_title}}' class="slide-image" mode="aspectFill"/>
         </swiper-item>

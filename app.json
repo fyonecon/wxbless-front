@@ -8,7 +8,7 @@
     "pages/mine/mine",
     "pages/about/about",
     "pages/history/history",
-    "pages/test/test"
+    "pages/card/card"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +21,7 @@
       {
         "pagePath": "pages/index/index",
         "text": "首 页",
-        "color": "#68838B",
+        "color": "#C4C4C4",
         "selectedColor": "#F0445F",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-selected.png"
@@ -29,7 +29,7 @@
       {
         "pagePath": "pages/mine/mine",
         "text": "我 的",
-        "color": "#68838B",
+        "color": "#C4C4C4",
         "selectedColor": "#F0445F",
         "iconPath": "images/mine.png",
         "selectedIconPath": "images/mine-selected.png"

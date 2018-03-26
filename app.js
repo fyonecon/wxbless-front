@@ -97,6 +97,82 @@ App({
 
 
               },
+              fail: function (){
+
+                //开始-重新授权
+                wx.showToast({
+                  title: '未授权',
+                  icon: 'none',
+                  duration: 800
+                })
+                setTimeout(function () {
+                }, 600)
+
+                wx.openSetting({
+                  success: function (res) {
+                    wx.showToast({
+                      title: '获取成功',
+                      icon: 'none',
+                      duration: 800
+                    })
+
+                    //重写信息获取
+                    wx.getUserInfo({
+                      success: function (res) {
+                        console.log(res.userInfo);
+
+                        //变量重新赋值
+                        nickName_ = res.userInfo.nickName;
+                        avatarUrl_ = res.userInfo.avatarUrl;
+                        gender_ = res.userInfo.gender;
+                        city_ = res.userInfo.city;
+                        province_ = res.userInfo.province;
+                        country_ = res.userInfo.country;
+
+
+                        //提交用户信息 3/3
+                        formData2 = { open_id: openid, nickname: nickName_, headimgurl: avatarUrl_, sex: gender_, city: city_, province: province_, country: country_ };
+                        console.log(formData2);
+                        //上传用户信息
+                        wx.request({
+                          url: 'https://www.djfans.net/wxbless_bg3/?s=/Home/User/add_app_user',
+                          data: formData2,
+                          header: {
+                            'Content-Type': 'application/json'
+                          },
+                          method: "get",
+                          success: function (res) {
+                            wx.showToast({
+                              title: '用户信息再生成',
+                              icon: 'none',
+                              duration: 500
+                            })
+                            setTimeout(function () {
+                            }, 500)
+
+                          },
+                          fail: function (res) {
+                            wx.showToast({
+                              title: '生成信息失败',
+                              icon: 'none',
+                              duration: 800
+                            })
+                            setTimeout(function () {
+                            }, 600)
+                          }
+                        })
+
+
+                      }
+                      
+                    })
+
+                  }
+                })
+                //结束-重新授权
+
+              }
+              
             })
 
             
