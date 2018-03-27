@@ -4,9 +4,9 @@
 var open_id = wx.getStorageSync("openid"); //如果有了openid
 var openid =''; //如果没有openid
 
-const pay_url = 'https://www.djfans.net';
-const appid = 'wx3472f272ef0129dc';
-const key = 'wxzhufunia2018031911hongbaopayer';
+const pay_url = '';
+const appid = '';
+const key = '';
 
 var fee = 0
 var body =''
