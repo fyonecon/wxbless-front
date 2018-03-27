@@ -8,4 +8,4 @@
 
 本人写的小程序前端，另外后端（基于TP3.2）也是本人写的。
 
-后端暂不开源。。
+后端支付模块已经开源 https://github.com/fyonecon/wxpay_smallprogram ，基于TP3.2 ，可自行配置TP5，有完整的注释教程说明。
